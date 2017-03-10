@@ -29,7 +29,12 @@ rl.question(msg, function(ans) {
 
         res.on('end', function() {
             finalData = JSON.parse(finalData);
-            console.log(finalData);
+            const hi = finalData[1].filter(function(country) {
+                if (country.incomeLevel.value == 'High income') {
+                    return country;
+                }
+            });
+            console.log(hi);
         });
     });
 });
